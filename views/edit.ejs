@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('nav.ejs')%>
+    <h1>수정하기</h1>
+    <form action="/edit?_method=PUT" method="post">
+      <ul>
+        <li>
+          <p hidden>
+            <label
+              >번호 : <input type="text" name="id" value="<%= post._id %>"
+            /></label>
+          </p>
+          <p>
+            <label
+              >제목 : <input type="text" name="title" value="<%= post.title %>"
+            /></label>
+          </p>
+          <p>
+            <label
+              >영화url :
+              <input type="text" name="Post_url" value="<%= post.Post_url %>"
+            /></label>
+          </p>
+          <p>
+            <label
+              >개봉일 : <input type="date" name="date" value="<%= post.date %>"
+            /></label>
+          </p>
+          <p>
+            <label
+              >장르 :
+              <select name="genre" value="<%= post.genre %> ">
+                <option value="공포">공포</option>
+                <option value="멜로">멜로</option>
+                <option value="코미디">코미디</option>
+                <option value="다큐">다큐</option>
+                <option value="판타지">판타지</option>
+                <option value="액션">액션</option>
+                <option value="스릴러">스릴러</option>
+                <option value="사극">사극</option>
+                <option value="SF">SF</option>
+                <option value="전쟁">전쟁</option>
+                <option value="애니메이션">애니메이션</option>
+                <option value="드라마">드라마</option>
+                <option value="스포츠">스포츠</option>
+                <option value="추리">추리</option>
+                <option value="좀비">좀비</option>
+                <option value="히어로">히어로</option>
+              </select></label
+            >
+          </p>
+          <p>
+            <label
+              >개봉일 :
+              <input type="text" name="comment" value="<%= post.comment %>"
+            /></label>
+          </p>
+          <input type="submit" value="수정" />
+        </li>
+      </ul>
+    </form>
+  </body>
+</html>

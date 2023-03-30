@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로젝트 명</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/public/css/myreset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/public/css/common.css" />
+  </head>
+  <body>
+    <!-- <%- include('nav.ejs') %> -->
+    <header class="hd">
+      <div class="tnb">
+        <a class="btn_write" href="/write">
+          <span class="btn_write__outline btn_write__outline--tall">
+            <span class="btn_write__line btn_write__line--tall"></span>
+            <span class="btn_write__line btn_write__line--flat"></span>
+          </span>
+          <span class="btn_write__outline btn_write__outline--flat">
+            <span class="btn_write__line btn_write__line--tall"></span>
+            <span class="btn_write__line btn_write__line--flat"></span>
+          </span>
+          <span class="btn_write__solid"></span>
+          <span class="btn_write__text">리뷰 작성</span>
+        </a>
+      </div>
+      <h1>
+        <a href="/">
+          <svg viewBox="0 0 1320 200">
+            <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+              Movie reviews
+            </text>
+          </svg>
+        </a>
+      </h1>
+    </header>
+    <div class="movie_frame">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <% for ( list in post ){ %>
+          <div class="swiper-slide">
+            <div class="movie_card">
+              <img src="<%= post[list].url %>" alt="<%= post[list].title %>" />
+              <div class="card_detail">
+                <a class="btn_edit" href="/edit/<%= post[list]._id %>">수정</a>
+                <button class="delete" data-id=" <%= post[list]._id %>">
+                  삭제
+                </button>
+                <p hidden>글번호 : <%= post[list]._id %></p>
+                <p class="movie_title"><%= post[list].title %></p>
+                <p>개봉일 : <%= post[list].date %></p>
+                <p>장르 : <%= post[list].genre %></p>
+                <p class="comment"><%= post[list].comment %></p>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+      $(".delete").click(function (e) {
+        let num = e.target.dataset.id;
+        $.ajax({ method: "DELETE", url: "/delete", data: { _id: num } })
+          .done(function (result) {
+            $(e.target).parent(".movie_card").fadeOut();
+          })
+          .fail(function (xhr, textStatus, errorThrown) {
+            console.log(xhr, textStatus, errorThrown);
+          });
+      });
+    </script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 30,
+        centeredSlides: true,
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
