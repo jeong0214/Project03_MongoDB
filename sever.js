@@ -79,14 +79,23 @@ async function main() {
       req.body._id = parseInt(req.body._id);
       await postCollection.deleteOne(req.body);
       res.status(200).send({ message: "성공" });
+      console.log("삭제완료");
     });
 
     //PUT
     app.put("/edit", async (req, res) => {
-      const { id, title, date } = req.body;
+      const { id, title, date, Post_url, comment, genre } = req.body;
       await postCollection.updateOne(
         { _id: parseInt(id) },
-        { $set: { url: Post_url, title: title, date: date, comment: comment } }
+        {
+          $set: {
+            url: Post_url,
+            title: title,
+            date: date,
+            comment: comment,
+            genre: genre,
+          },
+        }
       );
       console.log("수정완료");
       res.redirect("/");

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>프로젝트 명</title>
+    <title>Movie reviews</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -33,7 +33,7 @@
             <span class="btn_write__line btn_write__line--flat"></span>
           </span>
           <span class="btn_write__solid"></span>
-          <span class="btn_write__text">리뷰 작성</span>
+          <span class="btn_write__text">My Review</span>
         </a>
       </div>
       <h1>
@@ -47,7 +47,7 @@
       </h1>
     </header>
     <div class="movie_frame">
-      <div class="swiper mySwiper">
+      <div class="swiper swiper-container" id="movie_swiper">
         <div class="swiper-wrapper">
           <% for ( list in post ){ %>
           <div class="swiper-slide">
@@ -55,22 +55,22 @@
               <img src="<%= post[list].url %>" alt="<%= post[list].title %>" />
               <div class="card_detail">
                 <a class="btn_edit" href="/edit/<%= post[list]._id %>">수정</a>
-                <button class="delete" data-id=" <%= post[list]._id %>">
-                  삭제
-                </button>
                 <p hidden>글번호 : <%= post[list]._id %></p>
                 <p class="movie_title"><%= post[list].title %></p>
                 <p>개봉일 : <%= post[list].date %></p>
                 <p>장르 : <%= post[list].genre %></p>
                 <p class="comment"><%= post[list].comment %></p>
               </div>
+              <button class="delete" data-id=" <%= post[list]._id %>">
+                삭제
+              </button>
             </div>
           </div>
           <% } %>
         </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
       </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
     </div>
 
@@ -81,7 +81,7 @@
         let num = e.target.dataset.id;
         $.ajax({ method: "DELETE", url: "/delete", data: { _id: num } })
           .done(function (result) {
-            $(e.target).parent(".movie_card").fadeOut();
+            $(e.target).parent("div").fadeOut(300, "linear");
           })
           .fail(function (xhr, textStatus, errorThrown) {
             console.log(xhr, textStatus, errorThrown);
@@ -89,10 +89,11 @@
       });
     </script>
     <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: "auto",
+      var swiper = new Swiper(".swiper-container", {
+        slidesPerView: 1,
         spaceBetween: 30,
         centeredSlides: true,
+        slideToClickedSlide: true,
         pagination: {
           el: ".swiper-pagination",
           type: "fraction",
@@ -100,6 +101,12 @@
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          600: {
+            slidesPerView: "auto",
+            spaceBetween: 30,
+          },
         },
       });
     </script>
