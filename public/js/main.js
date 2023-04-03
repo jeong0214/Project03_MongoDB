@@ -22,6 +22,35 @@ $input_grade.addEventListener("blur", () => {
   document.querySelector(".grade_log").textContent = "";
 });
 
-document.querySelector("#input_comment").addEventListener("click", () => {
-  document.querySelector(".comment_log").textContent = "최대 500글자";
+const inputComment = document.querySelector("#input_comment");
+const commentLog = document.querySelector(".comment_log");
+
+inputComment.addEventListener("click", () => {
+  commentLog.textContent = "최대 500글자";
+});
+
+inputComment.addEventListener("blur", () => {
+  if (inputComment.value === "") {
+    commentLog.textContent = "";
+  }
+});
+
+// submit 활성화
+const form = document.querySelector("form");
+const inputs = form.querySelectorAll("input, select, textarea");
+const submitBtn = form.querySelector('input[type="submit"]');
+
+inputs.forEach((input) => input.addEventListener("input", checkInputs));
+
+function checkInputs() {
+  submitBtn.disabled = !Array.from(inputs).every(
+    (input) => input.value.trim() !== ""
+  );
+}
+
+form.addEventListener("submit", (e) => {
+  if (submitBtn.disabled) {
+    e.preventDefault();
+    alert("정보를 입력해주세요.");
+  }
 });

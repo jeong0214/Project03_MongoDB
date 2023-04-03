@@ -22,13 +22,12 @@ body {
 }
 .hd {
   margin: auto;
-  /* max-width: 1200px; */
+
   width: calc(100% - 2rem);
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid white; */
 }
 .tnb {
   padding-top: 1rem;
@@ -42,16 +41,16 @@ body {
   padding: 0.5rem;
   display: none;
 }
+/* 로고 */
 h1 {
   display: flex;
   justify-content: center;
-  /* border: 3px solid wheat; */
+
   width: 100%;
   height: 150px;
 }
 svg {
   font-family: "Russo One", sans-serif;
-  /* position: absolute; */
   width: 100%;
   height: 100%;
 }
@@ -90,7 +89,7 @@ svg text {
 /* 리뷰작성버튼 */
 .btn_write {
   font-family: var(--font1);
-  /* margin-top: 50px; */
+
   line-height: 10px;
   display: inline-block;
   padding: 25px 30px;
@@ -107,7 +106,7 @@ svg text {
   position: relative;
 }
 .btn_write:hover .btn_write__text {
-  color: white;
+  color: #ffffff;
 }
 .btn_write__solid {
   position: absolute;
@@ -210,15 +209,14 @@ svg text {
 }
 .movie_card {
   position: relative;
-  /* overflow: hidden; */
+
   border-radius: 1rem;
-  /* width: 150px; */
+
   height: 70vh;
   display: flex;
   justify-content: center;
 }
 .movie_card img {
-  /* width: 100%; */
   height: 100%;
 }
 .card_detail {
@@ -278,12 +276,10 @@ svg text {
   border-radius: 1rem;
   overflow: hidden;
   cursor: pointer;
-  /* margin: 0 auto; */
   transition: all 0.3s ease-in-out;
 }
 .swiper-slide-active {
   width: 480px;
-  /* margin: 0 auto; */
 }
 .swiper-slide-active .movie_card img {
   width: 100%;
@@ -344,11 +340,9 @@ form {
 .write_wrap h2 {
   font-size: 1.5rem;
   padding-bottom: 1rem;
-  /* text-align: center; */
 }
 
 .write_detail {
-  /* border: 1px solid black; */
   height: 50%;
 }
 .write_detail p {
@@ -369,7 +363,6 @@ form {
   background-position: right;
   border: none;
   outline: 1px solid #ffffff;
-  /* background-color: #1a1a1a; */
 }
 .url_wrap {
   position: relative;

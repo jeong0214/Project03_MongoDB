@@ -117,14 +117,20 @@
               </label>
             </p>
           </div>
-          <input type="submit" value="수정" />
+          <input type="submit" value="수정" disabled />
         </li>
         <li class="comment_wrap">
           <p>
             <label class="comment">
-              <textarea type="text" name="comment" maxlength="500">
+              <textarea
+                id="input_comment"
+                placeholder="코멘트 입력"
+                name="comment"
+                maxlength="500"
+              >
 <%= post.comment %></textarea
               >
+              <span class="comment_log"></span>
             </label>
           </p>
         </li>
