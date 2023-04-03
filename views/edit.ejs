@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      @media (max-width: 700px) {
+        body {
+          height: 120vh !important;
+        }
+      }
+    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -14,6 +21,7 @@
     />
     <link rel="stylesheet" href="/public/css/myreset.css" />
     <link rel="stylesheet" href="/public/css/common.css" />
+    <link rel="stylesheet" href="/public/css/edit.css" />
   </head>
   <body>
     <header>
@@ -41,7 +49,7 @@
           <div class="write_detail">
             <p>
               <label
-                >영화제목 
+                >영화제목
                 <input type="text" name="title" value="<%= post.title %>"
               /></label>
             </p>
@@ -55,8 +63,7 @@
           <div class="write_select">
             <p>
               <label
-                >개봉일
-                <input type="date" name="date" value="<%= post.date %>"
+                >개봉일 <input type="date" name="date" value="<%= post.date %>"
               /></label>
             </p>
             <p>

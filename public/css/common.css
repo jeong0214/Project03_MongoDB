@@ -36,6 +36,12 @@ body {
   display: flex;
   justify-content: right;
 }
+.M_btn_write {
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: none;
+}
 h1 {
   display: flex;
   justify-content: center;
@@ -438,30 +444,43 @@ form img {
 }
 /* 반응형 */
 @media (max-width: 700px) {
-  .write_wrap{
+  .write_wrap {
     flex-direction: column;
   }
   .write_wrap li {
     width: 100%;
   }
-  .write_detail input{
+  .write_detail input {
     width: 100%;
   }
   .write_select {
     justify-content: space-between;
   }
-  input[type="submit"]{
+  input[type="submit"] {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: -3%;
   }
-  input[type="submit"]:hover{
+  input[type="submit"]:hover {
     left: 50%;
     transform: translateX(-50%);
   }
-  .comment_wrap{
+  .comment_wrap {
     margin: 2rem 0;
+  }
+  form img {
+    transform: translateX(0);
+    width: 200px;
+  }
+  .btn_write {
+    display: none;
+  }
+  .M_btn_write {
+    display: flex;
+  }
+  .tnb {
+    width: 100%;
   }
 }
 @media (max-width: 500px) {
@@ -472,4 +491,3 @@ form img {
     width: 380px;
   }
 }
-
