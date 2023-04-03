@@ -55,7 +55,7 @@ async function main() {
 
     //POST
     app.post("/add", async function (req, res) {
-      const { title, date, Post_url, genre, comment } = req.body;
+      const { title, date, Post_url, genre, comment, grade } = req.body;
       const { totalcounter } = await counterCollection.findOne({
         name: "count",
       });
@@ -66,6 +66,7 @@ async function main() {
         date: date,
         genre: genre,
         comment: comment,
+        grade: grade,
       });
       await counterCollection.updateOne(
         { name: "count" },
@@ -84,7 +85,7 @@ async function main() {
 
     //PUT
     app.put("/edit", async (req, res) => {
-      const { id, title, date, Post_url, comment, genre } = req.body;
+      const { id, title, date, Post_url, comment, genre, grade } = req.body;
       await postCollection.updateOne(
         { _id: parseInt(id) },
         {
@@ -94,6 +95,7 @@ async function main() {
             date: date,
             comment: comment,
             genre: genre,
+            grade: grade,
           },
         }
       );
@@ -106,18 +108,3 @@ async function main() {
 }
 
 main().catch(console.dir);
-
-// npm사이트에서 제시한 mongoDB 활용
-// async function main() {
-//   await client.connect();
-//   console.log("서버실행");
-//   const db = client.db(dbName);
-//   const collection = db.collection("post");
-//   console.log(이 영역에 코드 추가);
-//   return "완료";
-// }
-
-// main()
-//   .then(console.log)
-//   .catch(console.error)
-//   .finally(() => client.close());

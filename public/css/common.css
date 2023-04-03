@@ -371,9 +371,20 @@ form {
   outline: 1px solid #ffffff;
   /* background-color: #1a1a1a; */
 }
+.url_wrap {
+  position: relative;
+}
+.movie_url_log {
+  position: absolute;
+  display: flex;
+  bottom: -50%;
+  left: 0;
+  font-size: 0.5rem;
+  color: rgb(221, 101, 101);
+}
 .write_select {
   display: flex;
-  height: 80%;
+  height: 30%;
 }
 .write_select p {
   padding-top: 1rem;
@@ -388,6 +399,7 @@ form {
   font-size: 0.75rem;
   font-family: var(--font1);
 }
+
 .write_select input:focus {
   outline: 1px solid #ffffff;
 }
@@ -401,6 +413,38 @@ form {
 .write_select select:focus {
   outline: 1px solid #ffffff;
   border: none;
+}
+.grade_wrap {
+  padding-top: 1rem;
+  height: 100%;
+}
+.grade_wrap input {
+  cursor: pointer;
+  background-color: #d9d9d9;
+  border: none;
+  box-shadow: 0px 0px 15px #00000060;
+  padding: 0.2rem;
+  font-size: 0.75rem;
+  font-family: var(--font1);
+  width: 30px;
+}
+.grade_wrap input:focus {
+  outline: 1px solid #ffffff;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.grade_p {
+  position: relative;
+}
+.grade_log {
+  position: absolute;
+  bottom: -90%;
+  left: 0;
+  font-size: 0.5rem;
+  color: rgb(221, 101, 101);
 }
 input[type="submit"] {
   font-family: var(--font1);
@@ -432,6 +476,14 @@ input[type="submit"]:hover {
   background-size: 30px;
   background-repeat: no-repeat;
   background-position: right bottom;
+}
+.comment {
+  position: relative;
+}
+.comment_log {
+  position: absolute;
+  font-size: 0.5rem;
+  color: rgb(221, 101, 101);
 }
 /* edit page */
 .thumbnail {
