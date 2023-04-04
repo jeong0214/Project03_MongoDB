@@ -75,26 +75,24 @@
               <label
                 >장르
                 <select name="genre">
-                  <option value="<%= post.genre %>" selected>
-                    <%= post.genre %>
-                  </option>
-                  <option value="공포">공포</option>
-                  <option value="멜로">멜로</option>
-                  <option value="코미디">코미디</option>
-                  <option value="다큐">다큐</option>
-                  <option value="판타지">판타지</option>
-                  <option value="액션">액션</option>
-                  <option value="스릴러">스릴러</option>
-                  <option value="사극">사극</option>
-                  <option value="SF">SF</option>
-                  <option value="전쟁">전쟁</option>
-                  <option value="애니메이션">애니메이션</option>
-                  <option value="드라마">드라마</option>
-                  <option value="스포츠">스포츠</option>
-                  <option value="추리">추리</option>
-                  <option value="좀비">좀비</option>
-                  <option value="히어로">히어로</option>
-                  <option value="범죄">범죄</option>
+                  <option value="none">장르선택</option>
+                  <option value="공포" <%= post.genre === '공포' ? 'selected' : '' %>>공포</option>
+                  <option value="멜로" <%= post.genre === '멜로' ? 'selected' : '' %>>멜로</option>
+                  <option value="코미디" <%= post.genre === '코미디' ? 'selected' : '' %>>코미디</option>
+                  <option value="다큐" <%= post.genre === '다큐' ? 'selected' : '' %>>다큐</option>
+                  <option value="판타지" <%= post.genre === '판타지' ? 'selected' : '' %>>판타지</option>
+                  <option value="액션" <%= post.genre === '액션' ? 'selected' : '' %>>액션</option>
+                  <option value="스릴러" <%= post.genre === '스릴러' ? 'selected' : '' %>>스릴러</option>
+                  <option value="사극" <%= post.genre === '사극' ? 'selected' : '' %>>사극</option>
+                  <option value="SF" <%= post.genre === 'SF' ? 'selected' : '' %>>SF</option>
+                  <option value="전쟁" <%= post.genre === '전쟁' ? 'selected' : '' %>>전쟁</option>
+                  <option value="애니메이션" <%= post.genre === '애니메이션' ? 'selected' : '' %>>애니메이션</option>
+                  <option value="드라마" <%= post.genre === '드라마' ? 'selected' : '' %>>드라마</option>
+                  <option value="스포츠" <%= post.genre === '스포츠' ? 'selected' : '' %>>스포츠</option>
+                  <option value="추리" <%= post.genre === '추리' ? 'selected' : '' %>>추리</option>
+                  <option value="좀비" <%= post.genre === '좀비' ? 'selected' : '' %>>좀비</option>
+                  <option value="히어로" <%= post.genre === '히어로' ? 'selected' : '' %>>히어로</option>
+                  <option value="범죄" <%= post.genre === '범죄' ? 'selected' : '' %>>범죄</option>
                 </select></label
               >
             </p>
