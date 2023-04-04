@@ -54,3 +54,4 @@ form.addEventListener("submit", (e) => {
     alert("정보를 입력해주세요.");
   }
 });
+console.log(submitBtn);
