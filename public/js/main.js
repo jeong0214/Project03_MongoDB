@@ -36,22 +36,34 @@ inputComment.addEventListener("blur", () => {
 });
 
 // submit 활성화
-const form = document.querySelector("form");
-const inputs = form.querySelectorAll("input, select, textarea");
-const submitBtn = form.querySelector('input[type="submit"]');
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  const inputs = form.querySelectorAll("input, textarea, select");
 
-inputs.forEach((input) => input.addEventListener("input", checkInputs));
+  form.addEventListener("submit", function (event) {
+    let isValid = true;
 
-function checkInputs() {
-  submitBtn.disabled = !Array.from(inputs).every(
-    (input) => input.value.trim() !== ""
-  );
-}
+    for (let i = 0; i < inputs.length; i++) {
+      const input = inputs[i];
+      if (input.value.trim() === "") {
+        input.classList.add("invalid");
+        isValid = false;
+      } else {
+        input.classList.remove("invalid");
+      }
+    }
 
-form.addEventListener("submit", (e) => {
-  if (submitBtn.disabled) {
-    e.preventDefault();
-    alert("정보를 입력해주세요.");
-  }
+    if (!isValid) {
+      event.preventDefault();
+      alert("정보를 입력해주세요.");
+    }
+  });
+
+  inputs.forEach(function (input) {
+    input.addEventListener("input", function () {
+      if (input.classList.contains("invalid")) {
+        input.classList.remove("invalid");
+      }
+    });
+  });
 });
-console.log(submitBtn);

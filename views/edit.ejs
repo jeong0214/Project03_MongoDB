@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="/public/css/myreset.css" />
     <link rel="stylesheet" href="/public/css/common.css" />
     <link rel="stylesheet" href="/public/css/sub.css" />
+    <link
+      href="/public/img/pavicon.ico"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
     <script src="/public/js/main.js" defer></script>
   </head>
   <body>
@@ -61,12 +66,12 @@
             </p>
           </div>
           <div class="write_select">
-            <p>
+            <p class="date_wrap">
               <label
                 >개봉일 <input type="date" name="date" value="<%= post.date %>"
               /></label>
             </p>
-            <p>
+            <p class="select_wrap">
               <label
                 >장르
                 <select name="genre">
@@ -111,7 +116,7 @@
               </label>
             </p>
           </div>
-          <input type="submit" value="수정" disabled />
+          <input type="submit" value="수정" />
         </li>
         <li class="comment_wrap">
           <p>
