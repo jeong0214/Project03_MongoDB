@@ -32,6 +32,6 @@ https://port-0-project03-mongodb-1io3t2blg1j97wh.sel3.cloudtype.app/
 	<img src="https://img.shields.io/badge/MongoDB-47a248?style=flat&logo=CSS3&logoColor=white" />
 	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=CSS3&logoColor=white" />
 	<img src="https://img.shields.io/badge/Figma-F24e1e?style=flat&logo=CSS3&logoColor=white" />
-	<img src="./Readme_img/cloudtype.png" alt="cloudtype" height="20"/>
+	<img src="./Readme_img/cloudtype.png" alt="cloudtype" width="61" height="20"/>
 	
 </div>
