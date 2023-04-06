@@ -44,3 +44,8 @@ https://port-0-project03-mongodb-1io3t2blg1j97wh.sel3.cloudtype.app/
 -웹에서 MongoDB에 저장된 작성내용을 수정페이지를 통해 수정가능 <br/>
 -swiper를 활용해 active된 슬라이드 이미지 크기 변경 <br/>
 -작성페이지에서 input요소를 제대로 채워야 데이터를 전송가능하게 미 작성시 경고문 등장
+
+---
+
+## 프로젝트 링크
+메인 시안 (피그마) : [디자인시안 및 와이어프레임](https://www.figma.com/file/kXoIFVue05TYeaZHTOmTxl/3%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%98%A4%EC%A0%95%EC%84%9D?node-id=0%3A1&t=LkvFM8NQ380Z2KAG-1, "figma link")
